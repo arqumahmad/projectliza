@@ -1,7 +1,7 @@
 import subprocess
 import os
 import sys
- 
+
 def say(words):
     tempfile = "temp.wav"
     devnull = open("/dev/null","w")
@@ -9,16 +9,4 @@ def say(words):
     subprocess.call(["aplay", tempfile],stderr=devnull)
     os.remove(tempfile)
 
-if len(sys.argv)<=1:
-    say('Hello, you have a new message')
- 
-elif os.path.isfile(sys.argv[1]):
-    fi=open(sys.argv[1],'r')  
-    text=fi.read()
-    say(text)
-
-else:
-    sentence=""
-    for i in range(1,len(sys.argv)):
-	sentence=sentence+sys.argv[i]
-    say(sentence)
+say('Hello, Arqum, How are you?')
