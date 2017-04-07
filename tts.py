@@ -1,3 +1,4 @@
+import weather
 import subprocess
 import os
 import sys
@@ -9,4 +10,4 @@ def say(words):
     subprocess.call(["aplay", tempfile],stderr=devnull)
     os.remove(tempfile)
 
-say('Hello, Arqum, How are you?')
+#say(weather.d)
