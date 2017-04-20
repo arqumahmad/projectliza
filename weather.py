@@ -17,4 +17,5 @@ c=b[b.find("s")+6:]
 x = w.get_temperature('celsius')
 y=str(x)
 z = re.sub('[^0-9]', '', y)
-d = 'The temperature is about'+z[:2]+' degree celsius. And it looks like it will be, '+c+' today.'
+d = 'The temperature is '+z[:2]+' degree celsius. And it looks like it will be, '+c+' today.'
+temp = 'The temperature is '+z[:2]+' degree celsius.'
