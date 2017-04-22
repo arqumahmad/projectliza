@@ -1,19 +1,16 @@
-import weather
-import subprocess
+#import weather
 import os
 import sys
-import RPi.GPIO as GPIO
-
+#import RPi.GPIO as GPIO
+from gtts import gTTS
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(27,GPIO.OUT)
 
 def say(words):
-    GPIO.output(27,GPIO.HIGH)
-    tempfile = "temp.wav"
-    devnull = open("/dev/null","w")
-    subprocess.call(["pico2wave", "-w", tempfile, words],stderr=devnull)
-    subprocess.call(["aplay", tempfile],stderr=devnull)
-    os.remove(tempfile)
-    GPIO.output(27,GPIO.LOW)
+
+    tts = gTTS(text=words, lang='en')
+    tts.save("good.mp3")
+    os.system("mpg321 good.mp3")
+
 #say(weather.d)
